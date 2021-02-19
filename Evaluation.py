@@ -282,5 +282,5 @@ model_config = dict(
     debug=debug
 )
 
-train("~/", model_config, )
+train("~/")
 # eval("/g/Data/model/wavelet/wavelet-500-256-692404-18.pt", transcode=True)

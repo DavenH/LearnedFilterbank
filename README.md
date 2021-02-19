@@ -5,15 +5,21 @@ Learned Wavelet Filterbanks
 
 This project explores the possibility of a deep learning model to jointly learn:
   - a bank of **wavelets**, or set of signal "fragments", that can be linearly combined to produce arbitrary signals   
-  - the **weights** for that linear combination, given a particular signal window
+  - the **weights** for that linear combination, given a particular signal window under analysis
 
     
 ### Motivation
   
-These wavelets can be used as features for downstream audio tasks, like classification.
+These wavelets can be used as features for downstream audio tasks, like classification, or in generative models.
   
 The weights produced for a particular audio signal are similar to the power spectrum of a time-frequency transform, 
-so they can be used similarly as high level features of the audio signal.
+so they can be used similarly as high level features of the audio signal. 
+
+Unlike the Fourier Transform which reveals 
+patterns primarily in the power spectrum (the other half of the information in its phase spectrum is largely chaotic), 
+this learned wavelet spectrum contains *all* the information in one image; this can lead to generative models trained on 
+this spectrum to have better phase-coherence -- less "mushy" sound -- than the alternatives which usually use 
+the Griffin-Lin algorithm to conjure phases out of nothing. 
 
 
 ### Visualization
@@ -30,10 +36,10 @@ An example learned filterbank:
 
 --- 
 
-Plotting the weights against a FFT spectrogram. Notice how because of the non-linearity of the analysis, you can 
-zoom in much further and achieve better time-frequency specificity than FFT, although 'frequency' is approximated.
+Plotting the weights over time against a FFT spectrogram. These plots are transforms of the same signal and same time interval. 
+Notice how you can zoom in much further to resolve details, and achieve better time-frequency specificity than FFT, although 'frequency' is approximated.
 
-Also note how sparse the 'learned wavelet transform' is compared to FFT, enabling high compression.  
+Also note how sparse the 'learned wavelet transform' is compared to FFT, enabling the potential for high compression.  
 
 ![](./media/spectrogram6.jpg)
 
