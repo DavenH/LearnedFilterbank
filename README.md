@@ -10,7 +10,7 @@ This project explores the possibility of a deep learning model to jointly learn:
     
 ### Motivation
   
-These wavelets can be used as features for downstream audio tasks, like classification, or in generative models.
+These weights can be used as features for downstream audio tasks, like classification, or in generative models. Because these weights are sparse, storing just the top 10 may reconstruct the signal with good fidelity, giving 25:1 compression.
   
 The weights produced for a particular audio signal are similar to the power spectrum of a time-frequency transform, 
 so they can be used similarly as high level features of the audio signal. 
